@@ -30,6 +30,7 @@ import org.elasticsearch.search.aggregations.pipeline.bucketmetrics.sum.SumBucke
 import org.elasticsearch.search.aggregations.pipeline.bucketscript.BucketScriptPipelineAggregationBuilder;
 import org.elasticsearch.search.aggregations.pipeline.bucketselector.BucketSelectorPipelineAggregationBuilder;
 import org.elasticsearch.search.aggregations.pipeline.bucketsort.BucketSortPipelineAggregationBuilder;
+import org.elasticsearch.search.aggregations.pipeline.correl.CorrelationPipelineAggregationBuilder;
 import org.elasticsearch.search.aggregations.pipeline.cumulativesum.CumulativeSumPipelineAggregationBuilder;
 import org.elasticsearch.search.aggregations.pipeline.derivative.DerivativePipelineAggregationBuilder;
 import org.elasticsearch.search.aggregations.pipeline.movavg.MovAvgPipelineAggregationBuilder;
@@ -104,6 +105,10 @@ public final class PipelineAggregatorBuilders {
 
     public static BucketSortPipelineAggregationBuilder bucketSort(String name, List<FieldSortBuilder> sorts) {
         return new BucketSortPipelineAggregationBuilder(name, sorts);
+    }
+
+    public static CorrelationPipelineAggregationBuilder correl(String name, int lag, String firstPath, String secondPath) {
+        return new CorrelationPipelineAggregationBuilder(name, lag, firstPath, secondPath);
     }
 
     public static CumulativeSumPipelineAggregationBuilder cumulativeSum(String name,
